@@ -66,11 +66,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <td>{{date('d-m-Y', strtotime($item->vaccination_date)) }}</td>
                                 <td>
                                     <a href="{{ url('edit-vaksinasi', $item->id) }}"><i class="fas fa-search"></i></a> |
-                                    <a href="#"><i class="fas fa-trash"></i></i></a>
+                                    <a href="{{ url('delete-vaksinasi', $item->id) }}"><i class="fas fa-trash"></i></i></a>
                                 </td>
                             </tr>
                             @endforeach
                         </table>
+                    </div>
+                    <div class="card-footer">
+                        {{ $dataVaksin->links() }}
                     </div>
                 </div>
             </div>

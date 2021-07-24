@@ -14,7 +14,7 @@ class VaccinationController extends Controller
      */
     public function index()
     {
-        $dataVaksin = Vaccination::all();
+        $dataVaksin = Vaccination::paginate(10);
         return view('vaksinasi.data-vaksinasi', compact('dataVaksin'));
     }
 
@@ -92,6 +92,8 @@ class VaccinationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $editVaksin = Vaccination::findorfail($id);
+        $editVaksin->delete();
+        return back()->with('info', "Anda telah berhasil melakukan hapus data!");
     }
 }
