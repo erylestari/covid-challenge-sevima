@@ -43,23 +43,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="content">
                 <div class="card card-info card-outline">
                     <div class="card-header">
-                        <h3>Tambah Data Vaksinasi</h3>
+                        <h3>Edit Data Vaksinasi</h3>
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ route('save-vaksinasi') }}" method="post">
+                        <form action="{{ url('update-vaksinasi', $editVaksin->id) }}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan Nama">
+                                <input type="text" id="name" name="name" class="form-control"
+                                    placeholder="Masukkan Nama" value="{{ $editVaksin->name }}">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="nik" name="nik" class="form-control" placeholder="Masukkan NIK">
+                                <input type="text" id="nik" name="nik" class="form-control" placeholder="Masukkan NIK"
+                                    value="{{ $editVaksin->nik }}">
                             </div>
                             <div class="form-group">
-                                <input type="date" id="vaccination_date" name="vaccination_date" class="form-control">
+                                <input type="date" id="vaccination_date" name="vaccination_date" class="form-control"
+                                    value="{{ $editVaksin->vaccination_date }}">
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success">Simpan Data</button>
+                                <button type="submit" class="btn btn-primary">Simpah Perubahan</button>
                             </div>
                         </form>
                     </div>
@@ -83,7 +86,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         @include('template.footer')
     </div>
     <!-- ./wrapper -->
-    
+
     <!-- REQUIRED SCRIPTS -->
     @include('template.script')
 </body>

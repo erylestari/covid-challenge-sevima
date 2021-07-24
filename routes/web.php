@@ -19,3 +19,5 @@ Route::get('/', function () {
 Route::get('/data-vaksinasi', 'VaccinationController@index')->name('data-vaksinasi');
 Route::get('/create-vaksinasi', 'VaccinationController@create')->name('create-vaksinasi');
 Route::post('/save-vaksinasi', 'VaccinationController@store')->name('save-vaksinasi');
+Route::get('/edit-vaksinasi/{id}', 'VaccinationController@edit')->name('edit-vaksinasi');
+Route::post('/update-vaksinasi/{id}', 'VaccinationController@update')->name('update-vaksinasi');

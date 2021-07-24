@@ -43,7 +43,7 @@ class VaccinationController extends Controller
             "vaccination_date" => $request->vaccination_date
         ]);
 
-        return redirect('data-vaksinasi')->with('toast_success', 'Data berhasil disimpan!');
+        return redirect('data-vaksinasi')->with('toast_success', 'Anda telah berhasil melakukan tambah data!');
     }
 
     /**
@@ -65,7 +65,8 @@ class VaccinationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $editVaksin = Vaccination::findorfail($id);
+        return view('vaksinasi.edit-vaksinasi', compact('editVaksin'));
     }
 
     /**
@@ -77,7 +78,10 @@ class VaccinationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $editVaksin = Vaccination::findorfail($id);
+        $editVaksin->update($request->all());
+
+        return redirect('data-vaksinasi')->with('toast_success', 'Anda telah berhasil melakukan update data!');
     }
 
     /**
