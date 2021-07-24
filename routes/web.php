@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/data-vaksinasi', 'VaccinationController@index')->name('data-vaksinasi');
+Route::get('/create-vaksinasi', 'VaccinationController@create')->name('create-vaksinasi');
+Route::post('/save-vaksinasi', 'VaccinationController@store')->name('save-vaksinasi');
