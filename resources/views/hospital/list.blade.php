@@ -42,27 +42,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Main content -->
             <div class="content">
                 <div class="card card-info card-outline">
-                    <div class="card-header">
-                        <h3>Tambah Data Vaksinasi</h3>
-                    </div>
-
                     <div class="card-body">
-                        <form action="{{ route('save-vaksinasi') }}" method="post">
-                            {{ csrf_field() }}
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" class="form-control"
-                                    placeholder="Masukkan Nama">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="nik" name="nik" class="form-control" placeholder="Masukkan NIK">
-                            </div>
-                            <div class="form-group">
-                                <input type="date" id="vaccination_date" name="vaccination_date" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-success">Simpan Data</button>
-                            </div>
-                        </form>
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Rumah Sakit</th>
+                                    <th>Alamat</th>
+                                    <th>Kabupaten</th>
+                                    <th>Nomor Telepon</th>
+                                    <th>Provinsi</th>
+                                </tr>
+                            </thead>
+                            @foreach ($dataHospital as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item['name'] }}</td>
+                                <td>{{ $item['address'] }}</td>
+                                <td>{{ $item['region'] }}</td>
+                                <td>{{ $item['phone'] }}</td>
+                                <td>{{ $item['province'] }}</td>
+                            </tr>
+                            @endforeach
+                        </table>
                     </div>
                 </div>
             </div>
@@ -87,6 +89,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- REQUIRED SCRIPTS -->
     @include('template.script')
+    @include('sweetalert::alert')
 </body>
 
 </html>

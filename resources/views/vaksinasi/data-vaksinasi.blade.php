@@ -51,13 +51,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     <div class="card-body">
                         <table class="table table-bordered">
-                            <tr>
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>NIK</th>
-                                <th>Tanggal Vaksinasi</th>
-                                <th>Aksi</th>
-                            </tr>
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama</th>
+                                    <th>NIK</th>
+                                    <th>Tanggal Vaksinasi</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
                             @foreach ($dataVaksin as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
@@ -65,8 +67,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <td>{{ $item->nik }}</td>
                                 <td>{{date('d-m-Y', strtotime($item->vaccination_date)) }}</td>
                                 <td>
-                                    <a href="{{ url('edit-vaksinasi', $item->id) }}"><i class="fas fa-search"></i></a> |
-                                    <a href="{{ url('delete-vaksinasi', $item->id) }}"><i class="fas fa-trash"></i></i></a>
+                                    <a href="{{ url('edit-vaksinasi', $item->id) }}"><i class="fas fa-search"
+                                            style="color: #2978B5"></i></a> |
+                                    <a href="{{ url('delete-vaksinasi', $item->id) }}"><i class="fas fa-trash"
+                                            style="color: #FB3640"></i></i></a>
                                 </td>
                             </tr>
                             @endforeach
