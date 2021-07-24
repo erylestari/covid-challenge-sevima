@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class HospitalListController extends Controller
+class StatistikaCovidController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class HospitalListController extends Controller
      */
     public function index()
     {
-        $response = Http::get('https://dekontaminasi.com/api/id/covid19/hospitals');
-        $dataHospital = $response->json();
-        return view('hospital.list', compact('dataHospital'));
+        $response = Http::get('https://api.kawalcorona.com/indonesia/provinsi');
+        $dataCovid = $response->json();
+        return view('statistik.stat-data', compact('dataCovid'));
     }
 }

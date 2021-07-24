@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route Landing Page
 Route::get('/', function () {
     return view('welcome');
 });
@@ -27,3 +28,6 @@ Route::get('/delete-vaksinasi/{id}', 'VaccinationController@destroy')->name('del
 
 // Route List RS Rujukan
 Route::get('/list-hospital', 'HospitalListController@index')->name('list-hospital');
+
+// Route Statistik Data Covid-19
+Route::get('/statistik-data-covid', 'StatistikaCovidController@index')->name('statistik-data-covid');

@@ -36,7 +36,7 @@
                 </li>
                 <li class="nav-item menu-open">
                 <li class="nav-item">
-                    <a href="{{ route('list-hospital') }}" class="nav-link">
+                    <a href="{{ route('statistik-data-covid') }}" class="nav-link">
                         <i class="fas fa-hospital"></i>
                         <p class="ml-2">
                             Statistik Data Covid-19
